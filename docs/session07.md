@@ -17,11 +17,26 @@
 - `requests.get()` を用いてHTMLを取得し、エラー処理やヘッダー設定の方法を学びます。
 - ブラウザの開発者ツールを使い、欲しい情報が含まれるタグを事前に調査する手順を紹介します。
 
+```python
+import requests
+
+resp = requests.get('https://example.com')
+print(resp.status_code)
+```
+
 ## 2. BeautifulSoupによる解析
 
 - `BeautifulSoup` オブジェクトから `find` / `find_all` を使って要素を抽出する方法を学びます。
 - CSSセレクターを使った検索や、テキストの整形・クリーンアップのコツを解説します。
 - 取得したデータをリストやCSVにまとめる処理を実装し、簡単なクローラーを作成します。
+
+```python
+from bs4 import BeautifulSoup
+
+html = '<p class="msg">hi</p>'
+soup = BeautifulSoup(html, 'html.parser')
+print(soup.find('p').text)
+```
 
 ## 3. マナーと応用例
 

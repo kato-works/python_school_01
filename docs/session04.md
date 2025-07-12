@@ -18,11 +18,26 @@
 - テキストファイルだけでなく CSV ファイルを扱う際の注意点も確認します。
 - 読み込んだ内容を一行ずつ処理する方法や、書き込みモードの違い (`w`, `a`) にも触れます。
 
+```python
+with open('sample.txt', 'w', encoding='utf-8') as f:
+    f.write('hello')
+
+with open('sample.txt', 'r', encoding='utf-8') as f:
+    print(f.read())
+```
+
 ## 2. 文字列処理の基礎
 
 - `split` や `join` を利用した区切り文字による分解・結合の方法を紹介します。
 - `replace`、スライス、`strip` などを使って不要な文字を除去したり置き換えるパターンを解説します。
 - 正規表現を使った高度な検索・置換の入り口も紹介し、実務への応用例を示します。
+
+```python
+text = 'apple,banana,orange'
+items = text.split(',')
+print(','.join(items))
+print(text.replace('banana', 'grape'))
+```
 
 ## 3. 実務で役立つログ整形
 

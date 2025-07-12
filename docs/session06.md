@@ -17,11 +17,27 @@ ExcelファイルをPythonで操作する方法を学びます。OpenPyXLやPand
 - 既存のExcelファイルを開き、値を取得したり更新する方法を解説します。
 - 新規ファイルを作成して保存するまでの流れを実践します。
 
+```python
+from openpyxl import Workbook
+
+wb = Workbook()
+ws = wb.active
+ws['A1'] = 'Hello'
+wb.save('hello.xlsx')
+```
+
 ## 2. 書式設定と数式
 
 - セルの背景色やフォントを変更する書式設定の方法を紹介します。
 - `SUM` などの関数式をセルに設定し、計算式付きのシートを自動生成します。
 - テンプレートとなるExcelを読み込み、既存の書式を保ったままデータだけを差し替えるテクニックを学びます。
+
+```python
+from openpyxl.styles import Font
+ws['A2'] = '=SUM(1, 2)'
+ws['A1'].font = Font(bold=True)
+wb.save('styled.xlsx')
+```
 
 ## 3. Pandasとの連携
 

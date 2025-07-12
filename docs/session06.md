@@ -9,6 +9,12 @@ ExcelファイルをPythonで操作する方法を学びます。OpenPyXLやPand
 
 既存のテンプレートファイルを利用して、複数シートへの出力やフォーマットの調整を試してみましょう。
 
+### インストール
+
+```bash
+pip install openpyxl pandas
+```
+
 ---
 
 ## 1. OpenPyXLによる基本操作

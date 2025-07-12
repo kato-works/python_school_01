@@ -18,11 +18,23 @@
 - `pd.read_csv()` でCSVを読み込み、`head()` や `describe()` を使って内容を確認します。
 - 表形式データならではのインデックスや列名の扱い方を学びます。
 
+```python
+import pandas as pd
+
+df = pd.read_csv('sales.csv')
+print(df.head())
+```
+
 ## 2. データの抽出とフィルタリング
 
 - 行・列の選択には `loc` と `iloc` を使用します。
 - 条件式を用いた行フィルタや、列の追加・削除の方法を紹介します。
 - 欠損値の処理やデータ型変換といったクレンジングの基本操作もここで取り上げます。
+
+```python
+high = df[df['amount'] > 100]
+print(high[['category', 'amount']])
+```
 
 ## 3. 集計と出力
 

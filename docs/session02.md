@@ -18,11 +18,31 @@
 - `elif` や `else` を使うことで複数の分岐を表現できます。
 - インデントをそろえて読みやすいコードを書くことが重要です。
 
+```python
+score = 70
+if score > 80:
+    print("Excellent")
+elif score >= 60:
+    print("Good")
+else:
+    print("Keep trying")
+```
+
 ## 2. ループ処理 (`for`, `while`)
 
 - `for` 文はリストや `range` から値を順番に取り出して処理します。
 - `while` 文は条件が `True` の間、繰り返し続けます。無限ループを避けるため、条件の更新を忘れないようにします。
 - 例として、数当てゲームやカウンタを用いた繰り返しを実装してみましょう。
+
+```python
+for n in range(3):
+    print("for loop", n)
+
+count = 0
+while count < 3:
+    print("while loop", count)
+    count += 1
+```
 
 ## 3. `range` とリストの活用
 

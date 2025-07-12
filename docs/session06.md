@@ -62,3 +62,11 @@ sales = pd.read_csv('sales.csv')
 sales.to_excel('report.xlsx', index=False)
 wb.save('result.xlsx')
 ```
+
+## 演習課題
+
+- "sample.xlsx" を読み込み、A1 の値を表示する。
+- 新規シートを作成して任意のデータを 5 行書き込む。
+- `DataFrame` を Excel に書き出してみる。
+- 既存のテンプレートファイルを読み込み、セルの書式を変更して保存する。
+- 複数シートにデータを書き込む処理を試す。

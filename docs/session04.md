@@ -56,3 +56,12 @@ with open('sample.log', 'r', encoding='utf-8') as f:
 with open('error.csv', 'w', encoding='utf-8') as f:
     f.write('\n'.join(cleaned))
 ```
+
+## 演習課題
+
+- "sample.txt" を読み込み、行数を数えて表示する。
+- カンマ区切りの文字列を分割し、リストにする。
+- テキスト内の特定の単語を別の単語に置き換えて表示する。
+- "data.csv" を読み取り、1 行ずつ `print` する。
+- 書き込み用ファイルを作成し、任意の文字列を数行保存する。
+- ログファイルから "ERROR" を含む行だけを新しいファイルに書き出す。

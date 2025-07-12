@@ -8,3 +8,35 @@ ExcelファイルをPythonで操作する方法を学びます。OpenPyXLやPand
 - 実務例：見積書や月報の自動生成
 
 既存のテンプレートファイルを利用して、複数シートへの出力やフォーマットの調整を試してみましょう。
+
+---
+
+## 1. OpenPyXLによる基本操作
+
+- `Workbook` と `Worksheet` の概念を理解し、セルの読み書きを行います。
+- 既存のExcelファイルを開き、値を取得したり更新する方法を解説します。
+- 新規ファイルを作成して保存するまでの流れを実践します。
+
+## 2. 書式設定と数式
+
+- セルの背景色やフォントを変更する書式設定の方法を紹介します。
+- `SUM` などの関数式をセルに設定し、計算式付きのシートを自動生成します。
+- テンプレートとなるExcelを読み込み、既存の書式を保ったままデータだけを差し替えるテクニックを学びます。
+
+## 3. Pandasとの連携
+
+- 大量の表データを扱う場合は、一度 `DataFrame` で加工し、`to_excel()` で出力すると効率的です。
+- 複数シートへの書き込みや、グラフ作成用のデータ整形など、実務でよくある処理を例示します。
+
+```python
+from openpyxl import load_workbook
+import pandas as pd
+
+wb = load_workbook('template.xlsx')
+ws = wb['Sheet1']
+ws['B2'] = 1000  # 値の更新
+
+sales = pd.read_csv('sales.csv')
+sales.to_excel('report.xlsx', index=False)
+wb.save('result.xlsx')
+```

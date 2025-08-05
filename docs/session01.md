@@ -21,25 +21,34 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 1. 以下の公式サイトから Python をダウンロードします。\
    https://www.python.org/downloads/ \
    執筆時点の最新バージョン（3.13.5）
+
 1. インストーラを実行し、Python を実行できるようにします。 \
-   インストーラーで「Add Python to PATH」にチェックを入れるのを忘れないようにしましょう。   
-1. Windowsメニューからコマンドプロンプトを起動し、
+   インストーラーで「Add Python to PATH」にチェックを入れるのを忘れないようにしましょう。   1. Windowsメニューからコマンドプロンプトを起動し、
+
    ```bash
    python --version 
    ```
+
    と実行して"Python 3.13.5"のように表示されることを確認してください。
+
 1. 続いて、pipを使ってJupyter Lab をインストールします。
+
    ```bash
    pip install jupyter-lab
    ```
+
 1. プログラムを保存する先のフォルダを作成します。
+
    ```bash
    mkdir study_python_01
    cd study_python_01
    ```
+
    mkdirはフォルダを作成するコマンド（make directory）、cdはフォルダへ移動するコマンド（change directory）です。\
    "cd study_python_01"はコマンドプロンプトを起動したら本講習内では毎回実行してください。
+
 1. Jupyter Lab を起動し、ブラウザ上でコードを実行する方法を紹介します。セル単位で実行できるため、学習や実験に便利です。
+
    ```bash
    jupyter lab
    ```

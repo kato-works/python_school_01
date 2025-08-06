@@ -95,6 +95,23 @@ score = 80
 print(f'点数:{ score }')
 ```
 
+## 4. 変数の型
+
+- **`int`（整数）**: 例 `a = 10`
+- **`float`（浮動小数点）**: 例 `b = 3.14`
+- **`str`（文字列）**: 例 `c = "Hello"`
+- **`bool`（真偽値）**: 例 `d = True`
+
+`type()` 関数で変数の型を確認できます。
+
+```python
+a = 10
+b = 3.14
+c = "Hello"
+d = True
+print(type(a), type(b), type(c), type(d))
+```
+
 ## 演習課題
 
 Jupyter Lab 上で以下のの実習を実行してみましょう。

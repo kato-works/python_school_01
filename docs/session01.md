@@ -34,7 +34,7 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 1. 続いて、pipを使ってJupyter Lab をインストールします。
 
    ```bash
-   pip install jupyter-lab
+   pip install jupyterlab
    ```
 
 1. プログラムを保存する先のフォルダを作成します。

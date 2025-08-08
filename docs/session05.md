@@ -62,8 +62,8 @@ summary.to_csv('summary.csv')
 
 ## 演習課題
 
-- Pandas で "sales.csv" を読み込み、先頭 5 行を表示する。
-- 特定の列で条件フィルターを行い、抽出結果を確認する。
-- 列 "amount" の平均値を求める。
-- "category" ごとの合計を `groupby` で集計する。
-- 加工した結果を新しい CSV ファイルに保存する。
+- Pandas で "sales.csv" を読み込み、先頭 5 行を表示する。[解答](../example/session05_example.md#演習課題-1)
+- 特定の列で条件フィルターを行い、抽出結果を確認する。[解答](../example/session05_example.md#演習課題-2)
+- 列 "amount" の平均値を求める。[解答](../example/session05_example.md#演習課題-3)
+- "category" ごとの合計を `groupby` で集計する。[解答](../example/session05_example.md#演習課題-4)
+- 加工した結果を新しい CSV ファイルに保存する。[解答](../example/session05_example.md#演習課題-5)

@@ -119,8 +119,8 @@ print(type(a), type(b), type(c), type(d))
 
 Jupyter Lab 上で以下のの実習を実行してみましょう。
 
-- 変数 x に 10、y に 3 を代入し、合計を表示する。
-- 自分の名前を変数 name に入れ、`print` で「Hello, name」の形で表示する。
-- 5 と 2 の割り算結果を変数 result に保存して表示する。
-- 2 つの数値をかけ算し、行末にコメントで式の内容を説明する。
-- 文字列と数値を組み合わせたメッセージを出力する。
+- 変数 x に 10、y に 3 を代入し、合計を表示する。[解答](../example/session01_example.md#演習課題-１)
+- 自分の名前を変数 name に入れ、`print` で「Hello, name」の形で表示する。[解答](../example/session01_example.md#演習課題-2)
+- 5 と 2 の割り算結果を変数 result に保存して表示する。[解答](../example/session01_example.md#演習問題-3)
+- 2 つの数値をかけ算し、行末にコメントで式の内容を説明する。[解答](../example/session01_example.md#演習問題-4)
+- 文字列と数値を組み合わせたメッセージを出力する。[解答](../example/session01_example.md#演習問題-5)

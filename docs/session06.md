@@ -69,8 +69,8 @@ wb.save('result.xlsx')
 
 ## 演習課題
 
-- "sample.xlsx" を読み込み、A1 の値を表示する。
-- 新規シートを作成して任意のデータを 5 行書き込む。
-- `DataFrame` を Excel に書き出してみる。
-- 既存のテンプレートファイルを読み込み、セルの書式を変更して保存する。
-- 複数シートにデータを書き込む処理を試す。
+- "sample.xlsx" を読み込み、A1 の値を表示する。[解答](../example/session06_example.md#演習課題-1)
+- 新規シートを作成して任意のデータを 5 行書き込む。[解答](../example/session06_example.md#演習課題-2)
+- `DataFrame` を Excel に書き出してみる。[解答](../example/session06_example.md#演習課題-3)
+- 既存のテンプレートファイルを読み込み、セルの書式を変更して保存する。[解答](../example/session06_example.md#演習課題-4)
+- 複数シートにデータを書き込む処理を試す。[解答](../example/session06_example.md#演習課題-5)

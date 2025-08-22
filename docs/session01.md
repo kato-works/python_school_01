@@ -20,10 +20,15 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 
 1. 以下の公式サイトから Python をダウンロードします。\
    https://www.python.org/downloads/ \
-   執筆時点の最新バージョン（3.13.5）
+   執筆時点の最新バージョン（3.13.7）
+   <img width="718" height="514" alt="image" src="https://github.com/user-attachments/assets/c93ecf3f-851e-4775-b43a-0e31ddbce1ae" />
 
 1. インストーラを実行し、Python を実行できるようにします。 \
-   インストーラーで「Add Python to PATH」にチェックを入れるのを忘れないようにしましょう。   1. Windowsメニューからコマンドプロンプトを起動し、
+   インストーラーで「Add Python to PATH」にチェックを入れるのを忘れないようにしましょう。
+   <img width="656" height="405" alt="image" src="https://github.com/user-attachments/assets/06625925-f03c-4663-ab2f-cc5c593d68b1" />
+
+1. Windowsメニューからコマンドプロンプトを起動し、
+   <img width="784" height="680" alt="image" src="https://github.com/user-attachments/assets/0b21fa07-ae58-4a56-8894-148a2b1a9be8" />
 
    ```bash
    python --version 

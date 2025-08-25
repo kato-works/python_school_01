@@ -29,14 +29,17 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 
 1. Windowsメニューからコマンドプロンプトを起動し、
    <img width="784" height="680" alt="image" src="https://github.com/user-attachments/assets/0b21fa07-ae58-4a56-8894-148a2b1a9be8" />
+   
+   (慣れてくれば「Win」+「R」で、ファイル名を指定して実行から、"cmd"と入力)
+   <img width="399" height="206" alt="image" src="https://github.com/user-attachments/assets/ae6ab647-9f9c-45ec-a647-2c2d58428937" />
 
    ```bash
    python --version 
    ```
 
-   と実行して"Python 3.13.5"のように表示されることを確認してください。
+   と実行して"Python 3.13.7"のように表示されることを確認してください。(インストールしたバージョンで表示は変わります。)
 
-1. 続いて、pipを使ってJupyter Lab をインストールします。
+1. 続いて、pipを使ってJupyter Lab をインストールします。（少し時間がかかります。）
 
    ```bash
    pip install jupyterlab

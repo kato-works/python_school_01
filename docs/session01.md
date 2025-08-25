@@ -18,19 +18,25 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 
 ## 2. Python のインストール方法と Jupyter Lab 紹介
 
-1. 以下の公式サイトから Python をダウンロードします。\
+1. 以下の公式サイトから Python をダウンロードします。
+   
    https://www.python.org/downloads/ \
    執筆時点の最新バージョン（3.13.7）
+   
    <img width="718" height="514" alt="image" src="https://github.com/user-attachments/assets/c93ecf3f-851e-4775-b43a-0e31ddbce1ae" />
 
-1. インストーラを実行し、Python を実行できるようにします。 \
+1. インストーラを実行し、Python を実行できるようにします。
+   
    インストーラーで「Add Python to PATH」にチェックを入れるのを忘れないようにしましょう。
+   
    <img width="656" height="405" alt="image" src="https://github.com/user-attachments/assets/06625925-f03c-4663-ab2f-cc5c593d68b1" />
 
-1. Windowsメニューからコマンドプロンプトを起動し、
+1. Windowsメニューからコマンドプロンプトを起動します。
+ 　
    <img width="784" height="680" alt="image" src="https://github.com/user-attachments/assets/0b21fa07-ae58-4a56-8894-148a2b1a9be8" />
    
    (慣れてくれば「Win」+「R」で、ファイル名を指定して実行から、"cmd"と入力)
+   
    <img width="399" height="206" alt="image" src="https://github.com/user-attachments/assets/ae6ab647-9f9c-45ec-a647-2c2d58428937" />
 
    ```bash
@@ -39,10 +45,51 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
 
    と実行して"Python 3.13.7"のように表示されることを確認してください。(インストールしたバージョンで表示は変わります。)
 
+   Pythonとだけ表示される又はインストールしたものと異なるバージョンが表示される場合には、パスの設定が失敗しているので、インストーラを再度起動し、"Modify"->"Next"->"Add Python to environment variablesにチェック"->"Install"と実施してください。
+   インストール時にエラーとなる場合には、インストーラを起動する際に右クリックで"管理者として実行"（ポップアップにはOK）から起動してインストールしてください。
+
 1. 続いて、pipを使ってJupyter Lab をインストールします。（少し時間がかかります。）
 
+   pipは、Pythonのパッケージやライブラリをインストール、アンインストール、管理するためのパッケージ管理システムです。オンラインのPyPi(https://pypi.org/)というレポジトリ(倉庫)からライブラリをインストールしてくれます。
+   
    ```bash
    pip install jupyterlab
+   ```
+
+   Successfully installed jupyterlab-X.X.Xのように表示されたらインストール成功です。
+   
+   ```bash
+   Using cached jupyterlab-4.4.6-py3-none-any.whl (12.3 MB)
+   Installing collected packages: jupyterlab
+   Successfully installed jupyterlab-4.4.6
+   ```
+
+   以下のように表示された場合には、インストールが完了していません。
+
+   ```bash
+   C:\Users\U004756>pip install jupyterlab
+   WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x000001ABD4DF56A0>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/jupyterlab/
+   WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x000001ABD4DCDE50>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/jupyterlab/
+   WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x000001ABD4DCDF90>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/jupyterlab/
+   WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x000001ABD4DCE0D0>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/jupyterlab/
+   WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<pip._vendor.urllib3.connection.HTTPSConnection object at 0x000001ABD4DCE210>, 'Connection to pypi.org timed out. (connect timeout=15)')': /simple/jupyterlab/
+   ERROR: Could not find a version that satisfies the requirement jupyterlab (from versions: none)
+   ERROR: No matching distribution found for jupyterlab
+   ```
+
+   社内のプロキシ・名前解決に失敗しているので、以下を試してみてください。
+
+   (172.16.10.41:8080部分は、環境に合わせて変更。)
+   
+   ```bash
+   set https_proxy=http://172.16.10.41:8080
+   pip install jupyterlab
+   ```
+
+   もしくは
+
+   ```bash
+   python -m pip install jupyterlab -i https://pypi.org/simple --default-timeout=60
    ```
 
 1. プログラムを保存する先のフォルダを作成します。

@@ -49,7 +49,7 @@ with open("data.csv", encoding="utf-8") as f:
 lines = ["first", "second", "third"]
 with open("out.txt", "w", encoding="utf-8") as f:
     for line in lines:
-        f.write(line + "\\n")
+        f.write(line + "\n")
 ```
 
 ## 演習課題 6

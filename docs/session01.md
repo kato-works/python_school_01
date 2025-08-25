@@ -107,6 +107,11 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
    ```bash
    jupyter lab
    ```
+   
+   <img width="914" height="785" alt="image" src="https://github.com/user-attachments/assets/cf49688a-6008-4434-9f3b-47e3dab9ecb8" />
+
+   Jupyter Labを終了する際には、ブラウザを閉じて、コマンドプロンプトに"Ctrl"+"C"と入力してください。
+   もしくはコマンドプロンプトを"X"ボタンで消してもOKです。
 
 ### Jupyter Lab とは
 

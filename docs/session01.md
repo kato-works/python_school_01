@@ -108,7 +108,7 @@ Python に慣れるため、簡単な計算や文字列操作を実際に入力�
    jupyter lab
    ```
    
-   <img width="914" height="785" alt="image" src="https://github.com/user-attachments/assets/cf49688a-6008-4434-9f3b-47e3dab9ecb8" />
+   <img width="800" alt="image" src="https://github.com/user-attachments/assets/cf49688a-6008-4434-9f3b-47e3dab9ecb8" />
 
    Jupyter Labを終了する際には、ブラウザを閉じて、コマンドプロンプトに"Ctrl"+"C"と入力してください。
    もしくはコマンドプロンプトを"X"ボタンで消してもOKです。
@@ -130,6 +130,20 @@ JupyterLabは、Pythonなどのプログラミング言語でデータ分析や�
 - Webベースで軽快に動作し、クラウドとも相性が良い（Google Colabとの類似点あり）
 
 実務での利便性や将来性を考えると、JupyterLabは非エンジニアにもおすすめできる強力なツールです。
+
+起動したら、NotebookのPython3をクリックすると、新規のノート（プログラミング場所）が開きます。
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/d95ed8a9-df07-4f86-99fb-ae7027b72e07" />
+
+ノートの枠にプログラムを書いて、再生ボタンを押すとプログラムが実行されます。
+実行結果はプログラムを書いた枠の下に表示されます。
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/01692b62-91a0-44b9-a74d-fe799499093a" />
+
+ノートを保存するには、上のフロッピーマークを押し、ファイル名を指定（lesson01.ipynbなど）、"Rename and Save"ボタンを押します。
+
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/bff9c923-f272-4c57-a728-a898184453f0" />
+
 
 ## 3. 変数、`print`, 四則演算、コメント
 

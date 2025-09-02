@@ -1,7 +1,17 @@
 ## SyntaxError 練習問題
 
-1. **問題:** `print("Hello"`
-   **修正後:** `print("Hello")`
+1. **問題:**
+   
+   ```python
+   print("Hello"
+   ```
+   
+   ```python
+     print("Hello"
+                 ^
+   SyntaxError: incomplete input
+   ```
+
 
 2. **問題:**
 
@@ -9,11 +19,10 @@
    if x == 10 print(x)
    ```
 
-   **修正後:**
-
    ```python
-   if x == 10:
-       print(x)
+       if x == 10 print(x)
+                  ^
+   SyntaxError: invalid syntax
    ```
 
 3. **問題:**
@@ -23,15 +32,24 @@
    print("OK")
    ```
 
-   **修正後:**
-
    ```python
-   if True:
        print("OK")
+       ^
+   IndentationError: expected an indented block after 'if' statement on line 1
    ```
 
-4. **問題:** `message = "Hello`
-   **修正後:** `message = "Hello"`
+4. **問題:** 
+
+   ```
+   message = "Hello
+   ```
+   
+   ```python
+       message = "Hello
+                 ^
+   SyntaxError: unterminated string literal (detected at line 1)
+   ```
+
 
 5. **問題:**
 
@@ -39,10 +57,10 @@
    class = "Math"
    ```
 
-   **修正後:**
-
    ```python
-   subject = "Math"
+       class = "Math"
+             ^
+   SyntaxError: invalid syntax
    ```
 
 6. **問題:**
@@ -52,32 +70,59 @@
        print("Hi")
    ```
 
-   **修正後:**
-
    ```python
-   def greet():
-       print("Hi")
+    def greet:
+             ^
+   SyntaxError: expected '('
    ```
 
-7. **問題:** `print('Alice's cat')`
-   **修正後:** `print("Alice's cat")`
+7. **問題:** 
+   
+   ```python
+   print('Alice's cat')
+   ```
+  
+   ```python
+       print('Alice's cat')
+                         ^
+   SyntaxError: unterminated string literal (detected at line 1)
+   ```
 
-8. **問題:** `numbers = [1, 2,, 3]`
-   **修正後:** `numbers = [1, 2, 3]`
+8. **問題:** 
+   
+   ```python
+   x　= 1
+   ```
 
-9. **問題:** `print "Hello"`
-   **修正後:** `print("Hello")`
+   ```python
+       x　= 1
+        ^
+   SyntaxError: invalid non-printable character U+3000
+   ```
+
+9. **問題:** 
+   
+   ```python
+   x = 1
+   print(f'x = { X }')
+   ```
+
+   ```python
+         1 x = 1
+   ----> 2 print(f'x = { X }')
+
+   NameError: name 'X' is not defined
+   ```
 
 10. **問題:**
-
+    
     ```python
     if x = 1:
         pass
     ```
-
-    **修正後:**
-
+    
     ```python
-    if x == 1:
-        pass
+    if x = 1:
+         ^
+    SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
     ```

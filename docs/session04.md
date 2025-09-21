@@ -18,7 +18,11 @@
 
 ## 0. 統計データのダウンロード
 
+以下のサイトから、都道府県庁所在市別・月別の気象データ平年値をダウンロードします。
 https://www.nstac.go.jp/use/literacy/ssdse/#SSDSE-F
+
+以下のコードを実行するとCSVデータをダウンロードします。
+今回は、このままコピーして実行してください。
 
 ```python
 import requests
@@ -37,7 +41,6 @@ with open('SSDSE-F-2023v3.csv', mode='w') as f:
     f.write(csv_text)
 ```
 
-
 ## 1. 基本的なファイル操作
 
 - `open` 関数と `with` 構文を使った安全なファイルの読み書きを学びます。
@@ -45,11 +48,14 @@ with open('SSDSE-F-2023v3.csv', mode='w') as f:
 - 読み込んだ内容を一行ずつ処理する方法や、書き込みモードの違い (`w`, `a`) にも触れます。
 
 ```python
-with open('sample.txt', 'w', encoding='utf-8') as f:
-    f.write('hello')
+# ファイルの書き込み
+with open('sample.txt', mode='w', encoding='sjis') as f:
+    f.write('hello\n')
 
-with open('sample.txt', 'r', encoding='utf-8') as f:
-    print(f.read())
+# ファイルの読み込み
+with open('sample.txt', mode='r', encoding='sjis') as f:
+    line = f.read()
+    print(line)
 ```
 
 ## 2. 文字列処理の基礎
@@ -65,22 +71,23 @@ print(','.join(items))
 print(text.replace('banana', 'grape'))
 ```
 
-## 3. 実務で役立つログ整形
+## 3. CSVの抽出をしてみよう
 
-- 例として、アクセスログやエラーログを読み込み、必要な行だけを抽出して CSV にまとめる処理を作成します。
+- 例として、必要な行だけを抽出して CSV にまとめる処理を作成します。
 - 文字列処理とファイル出力を組み合わせ、整形後のデータをグラフ化するなど、次の分析ステップへつなげる方法に触れます。
 
 ```python
-# 例: ログファイルから日付とメッセージを抽出
-cleaned = []
-with open('sample.log', 'r', encoding='utf-8') as f:
+# 例: 統計情報から東京都のみを抽出
+lines = []
+with open('SSDSE-F-2023v3.csv', mode='r', encoding='sjis') as f:
     for line in f:
-        if 'ERROR' in line:
-            date, msg = line.split(' - ', 1)
-            cleaned.append(f'{date},{msg.strip()}')
+        if ('都道府県' in line) or ('東京都' in line):
+            print(line)
+            lines.append(line)
 
-with open('error.csv', 'w', encoding='utf-8') as f:
-    f.write('\n'.join(cleaned))
+with open('tokyo.csv', mode='w',  encoding='sjis') as f:
+    for line in lines:
+        f.write(line)
 ```
 
 ## 演習課題

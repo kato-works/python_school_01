@@ -48,14 +48,18 @@ with open('SSDSE-F-2023v3.csv', mode='w') as f:
 - 読み込んだ内容を一行ずつ処理する方法や、書き込みモードの違い (`w`, `a`) にも触れます。
 
 ```python
-# ファイルの書き込み
+# ファイルの書き込み mode='write' as write
 with open('sample.txt', mode='w', encoding='sjis') as f:
     f.write('hello\n')
 
-# ファイルの読み込み
+# ファイルの読み込み mode='r' as read
 with open('sample.txt', mode='r', encoding='sjis') as f:
     line = f.read()
     print(line)
+
+# ファイルの追記 mode='a' as append
+with open('sample.txt', mode='a', encoding='sjis') as f:
+    f.write('hello\n')
 ```
 
 ## 2. 文字列処理の基礎

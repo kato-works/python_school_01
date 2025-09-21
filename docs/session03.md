@@ -60,6 +60,58 @@ print(triangle_area(5, 3))
 print(math.sin(math.pi / 2))
 ```
 
+- 日付の取り扱い
+
+| フォーマット | 値 |
+| --- | --- |
+| %Y | 年 |
+| %m | 月 |
+| %d | 日 |
+| %H | 時 |
+| %M | 分 |
+| %S | 秒 |
+
+```python
+# 例： 日付のフォーマット・解析
+from datetime import datetime
+
+# 現在時刻の取得
+now = datetime.now()
+
+# 日本でよく見られる表現
+print(now.strftime('%Y/%m/%d %H:%M:%S'))
+# ISOフォーマット
+print(now.isoformat())
+
+date_string = '20250922_123456'
+
+# 文字列から日付時刻を抽出
+date_obj = datetime.strptime(date_string, '%Y%m%d_%H%M%S')
+print(date_obj.isoformat())
+
+# ISOフォーマットの解析と整形
+date_string_iso = '2025-09-21T11:03:14.625819'
+date_obj = datetime.fromisoformat(date_string_iso)
+print(date_obj.strftime('%Y/%m/%d %H:%M:%S'))
+```
+
+https://docs.python.org/ja/3.8/library/datetime.html
+
+```python
+# 日付の計算
+from datetime import datetime, timedelta
+
+# 現在時刻の取得
+now = datetime.now()
+
+# ３日前の日付を取得
+print((now - timedelta(days=3)).strftime('%Y/%m/%d'))
+
+# １時間後の時刻を取得
+print((now + timedelta(hours=1)).strftime('%H:%M:%S'))
+
+```
+
 ## 演習課題
 
 - 2 つの数値を受け取り足し算して返す関数 `add` を定義し、呼び出す。

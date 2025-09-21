@@ -16,6 +16,28 @@
 
 ---
 
+## 0. 統計データのダウンロード
+
+https://www.nstac.go.jp/use/literacy/ssdse/#SSDSE-F
+
+```python
+import requests
+
+# 都道府県庁所在市別・月別の気象データ平年値
+url = "https://www.nstac.go.jp/sys/files/SSDSE-F-2023v3.csv"
+
+# CSVデータを取得
+response = requests.get(url)
+response.raise_for_status()  # エラー時は例外発生
+
+# テキストとして読み込む
+csv_text = response.text
+
+with open('SSDSE-F-2023v3.csv', mode='w') as f:
+    f.write(csv_text)
+```
+
+
 ## 1. 基本的なファイル操作
 
 - `open` 関数と `with` 構文を使った安全なファイルの読み書きを学びます。

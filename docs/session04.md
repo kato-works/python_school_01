@@ -66,9 +66,16 @@ with open('sample.txt', mode='a', encoding='sjis') as f:
 - 正規表現を使った高度な検索・置換の入り口も紹介し、実務への応用例を示します。
 
 ```python
+# CSVに見立てた文字列
 text = 'apple,banana,orange'
+
+# ","で分割
 items = text.split(',')
-print(','.join(items))
+
+# " "で繋げて表示
+print(' '.join(items))
+
+# banana を grapeに置換
 print(text.replace('banana', 'grape'))
 ```
 

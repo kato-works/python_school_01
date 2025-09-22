@@ -38,6 +38,13 @@ with open("SSDSE-F-2023v3.csv", mode="wb") as f:
     f.write(response.content)
 ```
 
+> [!TIP]
+> 以下のように入力して実行すると、Explorerで現在のフォルダが開くので、ファイルを確認しやすくなります。
+> ```bash
+> !explorer .
+> ```
+
+
 ## 1. 基本的なファイル操作
 
 - `open` 関数と `with` 構文を使った安全なファイルの読み書きを学びます。

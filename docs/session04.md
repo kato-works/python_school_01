@@ -34,11 +34,8 @@ url = "https://www.nstac.go.jp/sys/files/SSDSE-F-2023v3.csv"
 response = requests.get(url)
 response.raise_for_status()  # エラー時は例外発生
 
-# テキストとして読み込む
-csv_text = response.text
-
-with open('SSDSE-F-2023v3.csv', mode='w') as f:
-    f.write(csv_text)
+with open("SSDSE-F-2023v3.csv", mode="wb") as f:
+    f.write(response.content)
 ```
 
 ## 1. 基本的なファイル操作

@@ -59,7 +59,7 @@ with open('sample.txt', mode='r', encoding='sjis') as f:
 
 # ファイルの追記 mode='a' as append
 with open('sample.txt', mode='a', encoding='sjis') as f:
-    f.write('hello\n')
+    f.write('hello !!!\n')
 ```
 
 ## 2. 文字列処理の基礎

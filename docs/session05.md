@@ -1,6 +1,7 @@
 # 第5回：表形式データの処理（Pandas入門）
 
 表計算ソフトのようなデータ操作をPythonで行えるライブラリ「Pandas」を学習します。実務でよく扱うCSVファイルを読み込み、集計やデータクレンジングを体験します。
+PandasはExcel並みの集計機能を持ったオープンソースのライブラリです。
 
 ## 前回の復習
 
@@ -31,8 +32,45 @@ pip install pandas
 ```python
 import pandas as pd
 
-df = pd.read_csv('sales.csv')
-print(df.head())
+# SSDSE-F-2023v3.csvというファイルを、文字コードShift-JISで、２行目をヘッダとして読み込む
+df = pd.read_csv('SSDSE-F-2023v3.csv', encoding='sjis', header=1)
+# 
+df.head()
+```
+
+データの概要を把握できるdescribe()という関数が用意されているので、実行してみましょう。
+列ごとの平均・標準偏差・最小値・最大値・中央値・1/4量値などが表示され、分析の指針を得ることができます。
+
+```python
+df.describe()
+```
+
+全行を表示したいときには、以下のようなオプションを設定します。
+
+```python
+# 全行表示
+pd.set_option('display.max_rows', None)
+```
+
+もとに戻すには以下のように設定してください。
+
+```python
+# 元に戻す
+pd.reset_option('display.max_rows')
+```
+
+全列を表示したいときには、以下のようなオプションを設定します。
+
+```python
+# 全列表示
+pd.set_option('display.max_columns', None)
+```
+
+もとに戻すには以下のように設定してください。
+
+```python
+# 元に戻す
+pd.reset_option('display.max_columns')
 ```
 
 ## 2. データの抽出とフィルタリング
@@ -41,9 +79,45 @@ print(df.head())
 - 条件式を用いた行フィルタや、列の追加・削除の方法を紹介します。
 - 欠損値の処理やデータ型変換といったクレンジングの基本操作もここで取り上げます。
 
+df[カラム名]とすることで、Excelの列のように取り出すことができます。
+
 ```python
-high = df[df['amount'] > 100]
-print(high[['category', 'amount']])
+# '日最高気温の平均'の列のデータを表示
+df['日最高気温の平均']
+```
+
+行を指定してデータを表示してみましょう。
+
+```python
+# 40行目を抽出
+df.iloc[40]
+```
+
+pythonでは配列データをset()にいれることで、一意なデータにすることができます。
+
+```python
+# '月・年'というカラムにどんなデータが含まれるか一覧をチェック
+set(df['月・年'])
+```
+
+月別のデータの他に、年間データが含まれているので、集計のじゃまになるので取り除きます。
+データ分析では、このように目的から外れるデータを取り除くことをクレンジングと呼びます。
+クレンジングには、今回のような統計対象でないデータを除く他に、外れ値やノイズも対象となることがあります。
+クレンジングしすぎることで、恣意的になり分析結果に分析者によるバイアス（偏り）が入ることもあるので注意が必要です。
+
+```python
+# df['月・年'] != '年' とすることで、'年'に一致しない行が選択されます。
+df_clean = df[df['月・年'] != '年']
+df_clean
+```
+
+最高気温日の平均が30度を越える県・月を選択してみます。
+
+```python
+pd.set_option('display.max_rows', None)
+df_over_30 = df_clean[df_clean['日最高気温の平均'] > 30.0]
+print(df_over_30[['都道府県', '月・年','日最高気温の平均']])
+pd.reset_option('display.max_rows')
 ```
 
 ## 3. 集計と出力
@@ -51,19 +125,23 @@ print(high[['category', 'amount']])
 - `groupby` や `pivot_table` を使ってデータを集計する方法を実践します。
 - 集計結果を新しいCSVとして保存し、Excelへの受け渡しや可視化ツールへの連携方法に触れます。
 
-```python
-import pandas as pd
+groupbyで、集計を行う列を指定します。集計の計算対象を配列で渡すことで、
 
-df = pd.read_csv('sales.csv')
-summary = df.groupby('category')['amount'].sum()
-print(summary)
-summary.to_csv('summary.csv')
+```python
+# '都道府県'で集計を行い、['日最高気温30℃以上の日数','日最低気温0℃未満の日数']それぞれの、合計（sum）を求めます。
+df_group_by = df_clean.groupby('都道府県')[['日最高気温30℃以上の日数','日最低気温0℃未満の日数']].sum()
+df_group_by
+```
+
+計算結果をCSVファイルとして保存してみましょう。
+
+```python
+df_group_by.to_csv("df_group_by.csv", encoding="shift-jis")
 ```
 
 ## 演習課題
 
-- Pandas で "sales.csv" を読み込み、先頭 5 行を表示する。
-- 特定の列で条件フィルターを行い、抽出結果を確認する。
-- 列 "amount" の平均値を求める。
-- "category" ごとの合計を `groupby` で集計する。
+- Pandas で "SSDSE-F-2023v3.csv" を読み込み、先頭 5 行を表示する。
+- 特定の列で条件（日最低気温の平均が0℃を下回る行）フィルターを行い、抽出結果を確認する。
+- 列 "標高" の平均値を求める。
 - 加工した結果を新しい CSV ファイルに保存する。

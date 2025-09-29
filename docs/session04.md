@@ -105,6 +105,32 @@ with open('tokyo.csv', mode='w',  encoding='sjis') as f:
         f.write(line)
 ```
 
+別の書き方
+```python
+lines = []
+
+# ファイルの全行を、linesという配列に読み込み
+with open('SSDSE-F-2023v3.csv', mode='r', encoding='sjis') as f:
+    lines = f.readlines()
+
+results = []
+
+# 都道府県、もしくは、東京都を含む行だったら、resultsという配列に追加
+for line in lines:
+    if '都道府県' in line:
+        results.append(line)
+    elif '東京都' in line:
+        results.append(line)
+
+print(len(results))
+
+# tokyo.csvというファイルに、文字コードsjisで書き込み
+with open('tokyo.csv', mode='w', encoding='sjis') as f:
+    for line in results:
+        f.write(line
+
+```
+
 ## 演習課題
 
 - "SSDSE-F-2023v3.csv" を読み込み、行数を数えて表示する。

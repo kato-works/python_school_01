@@ -18,8 +18,10 @@ PandasはExcel並みの集計機能を持ったオープンソースのライブ
 ### インストール
 
 ```bash
-pip install pandas
+!pip install pandas
 ```
+
+Jupyterの再起動アイコンをクリックする。
 
 ---
 

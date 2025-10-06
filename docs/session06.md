@@ -147,10 +147,10 @@ import pandas as pd
 sales = pd.read_csv('sales_2023.csv')
 
 # Pandasでは、このように集計値の計算などが行えます
-sales['price'] = sales['unit_price'] * sales['quantity']
+sales['sales_amount'] = sales['unit_price'] * sales['quantity']
 
 # データを地域ごとに集計
-monthly_summary = sales[['region', 'quantity', 'price']].groupby('region').sum().reset_index()
+monthly_summary = sales[['region', 'quantity', 'sales_amount']].groupby('region').sum().reset_index()
 
 # sales_summary.xlsxとしてExcel形式でファイルを保存
 monthly_summary.to_excel('sales_summary.xlsx', index=False, sheet_name='2023_sales')

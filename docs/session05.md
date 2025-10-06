@@ -141,7 +141,7 @@ df_group_by
 ```python
 import pandas as pd
 
-sales = pd.read_csv('example/sales_2023.csv')
+sales = pd.read_csv('sales_2023.csv')
 
 # 売上金額を計算して列として追加
 sales['sales_amount'] = sales['quantity'] * sales['unit_price']

@@ -58,6 +58,8 @@ print(ws['A1'].value)
 - `SUM` などの関数式をセルに設定し、計算式付きのシートを自動生成します。
 - テンプレートとなるExcelを読み込み、既存の書式を保ったままデータだけを差し替えるテクニックを学びます。
 
+新しいファイルを作成して、関数を記入してみましょう。
+
 ```python
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, PatternFill
@@ -76,6 +78,18 @@ ws['A2'].font = Font(color='7030A0')  # 数式セルは紫文字に
 ws['A2'].fill = PatternFill(fill_type='solid', fgColor='E5E0EC')
 
 wb.save('styled.xlsx')
+```
+
+色指定のcolor=やfgColor=で指定している、FFFFFFや、4F81BDは、赤緑青の割合を表したカラーコードです。以下のようなサイトを参考にしてください。
+（覚えるものではありません。）
+
+
+ファイルをExcelで開かないと計算は実行されません。
+試しに、Excelで開く前と開いた後で、以下のプログラムの動作はどうかわるか試してみましょう。
+
+```python
+from openpyxl import Workbook, load_workbook
+from openpyxl.styles import Font, PatternFill
 
 # 数式そのものを取得
 formula = ws['A2'].value  # '=SUM(1, 2)'
@@ -88,7 +102,6 @@ result = ws_result['A2'].value  # -> 再計算済みなら 3
 print(formula, result)
 ```
 
-FFFFFFや、4F81BDは、赤緑青の割合を表したカラーコードです。以下のようなサイトを参考にしてください。
 
 https://www.colordic.org/
 

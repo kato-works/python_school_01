@@ -135,6 +135,31 @@ df_group_by = df_clean.groupby('都道府県')[['日最高気温30℃以上の�
 df_group_by
 ```
 
+`pivot_table` を使うと Excel のピボットテーブルのように、行・列・集計値を一度に指定したクロス集計が行えます。
+`order_id,date,region,product,quantity,unit_price` という列を持つ `example/sales_2023.csv` を読み込み、地域×商品別の売上合計を計算してみましょう。
+
+```python
+import pandas as pd
+
+sales = pd.read_csv('example/sales_2023.csv')
+
+# 売上金額を計算して列として追加
+sales['sales_amount'] = sales['quantity'] * sales['unit_price']
+
+pivot = pd.pivot_table(
+    sales,
+    index='region',      # 行方向：地域
+    columns='product',   # 列方向：商品
+    values='sales_amount',
+    aggfunc='sum',
+    fill_value=0         # 集計結果が存在しない組み合わせは 0 を入れる
+)
+
+print(pivot)
+```
+
+実行すると、地域（行）と商品（列）ごとの売上金額が一覧で確認でき、需要の高い地域や商品を素早く把握できます。
+
 計算結果をCSVファイルとして保存してみましょう。
 
 ```python

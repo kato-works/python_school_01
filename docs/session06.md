@@ -145,12 +145,9 @@ import pandas as pd
 
 # CSV から読み込んだ売上データを集計し、Excel に一括出力
 sales = pd.read_csv('sales_2023.csv')
-monthly_summary = (
-    sales
-    .groupby('month')
-    .agg(total_amount=('amount', 'sum'))
-    .reset_index()
-)
+
+# データを地域ごとに集計
+monthly_summary = sales[['region', 'quantity', 'price']].groupby('region').sum().reset_index()
 
 monthly_summary.to_excel('sales_summary.xlsx', index=False, sheet_name='2023_sales')
 ```

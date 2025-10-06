@@ -19,6 +19,12 @@ ExcelファイルをPythonで操作する方法を学びます。OpenPyXLやPand
 pip install openpyxl pandas
 ```
 
+エラーが出るようであれば、
+
+```bash
+pip install --proxy=172.16.10.41:8080 openpyxl pandas
+```
+
 ---
 
 ## 1. OpenPyXLによる基本操作

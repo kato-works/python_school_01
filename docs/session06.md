@@ -60,14 +60,21 @@ print(ws['A1'].value)
 
 ```python
 from openpyxl import Workbook, load_workbook
-from openpyxl.styles import Font
+from openpyxl.styles import Font, PatternFill
 
 wb = Workbook()
 ws = wb.active
 
+# フォントや背景色の設定
 ws['A1'] = '合計'
+ws['A1'].font = Font(bold=True, color='FFFFFF')  # 太字・白文字
+ws['A1'].fill = PatternFill(fill_type='solid', fgColor='4F81BD')  # 背景を青に
+
+# 数式を設定
 ws['A2'] = '=SUM(1, 2)'
-ws['A1'].font = Font(bold=True)
+ws['A2'].font = Font(color='7030A0')  # 数式セルは紫文字に
+ws['A2'].fill = PatternFill(fill_type='solid', fgColor='E5E0EC')
+
 wb.save('styled.xlsx')
 
 # 数式そのものを取得

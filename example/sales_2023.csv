@@ -1,4 +1,4 @@
-order_id,date,region,product,quantity,price
+order_id,date,region,product,quantity,unit_price
 2023-0001,2023-01-05,Hokkaido,Laptop,2,125000
 2023-0002,2023-01-07,Tohoku,Monitor,5,32000
 2023-0003,2023-01-12,Kanto,Mouse,15,1800

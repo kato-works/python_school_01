@@ -49,10 +49,26 @@ wb.save('hello.xlsx')
 - テンプレートとなるExcelを読み込み、既存の書式を保ったままデータだけを差し替えるテクニックを学びます。
 
 ```python
+from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font
+
+wb = Workbook()
+ws = wb.active
+
+ws['A1'] = '合計'
 ws['A2'] = '=SUM(1, 2)'
 ws['A1'].font = Font(bold=True)
 wb.save('styled.xlsx')
+
+# 数式そのものを取得
+formula = ws['A2'].value  # '=SUM(1, 2)'
+
+# 数式の計算結果を取得（Excel などで再計算済みである必要があります）
+wb_result = load_workbook('styled.xlsx', data_only=True)
+ws_result = wb_result.active
+result = ws_result['A2'].value  # -> 再計算済みなら 3
+
+print(formula, result)
 ```
 
 ## 3. Pandasとの連携

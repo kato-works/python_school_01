@@ -94,21 +94,51 @@ https://www.colordic.org/
 
 ## 3. Pandasとの連携
 
-- 大量の表データを扱う場合は、一度 `DataFrame` で加工し、`to_excel()` で出力すると効率的です。
-- 複数シートへの書き込みや、グラフ作成用のデータ整形など、実務でよくある処理を例示します。
+OpenPyXL と Pandas はどちらも Excel ファイルを扱えますが、得意とする領域が異なります。適材適所で使い分けられるよう、代表的な特徴を整理
+しましょう。
+
+| 観点 | OpenPyXL | Pandas |
+| --- | --- | --- |
+| 得意分野 | セル単位の制御、書式や数式の維持 | 表形式データの大量処理・集計 |
+| 代表的な操作 | 既存テンプレートの編集、細かな書式調整 | CSV などからのデータ読み込み・加工・一括出力 |
+| Excel 以外の連携 | 基本的に Excel ファイルの読み書き | CSV、SQL、JSON など多くのデータソースと連携 |
+
+以下に、同じ売上データを扱うケースでの処理例をそれぞれ示します。
+
+### OpenPyXL でテンプレートに値を差し込む例
 
 ```python
 from openpyxl import load_workbook
+
+wb = load_workbook('monthly_report_template.xlsx')
+ws = wb['Summary']
+
+# テンプレート内のセル書式を維持したまま数値を更新
+ws['B2'] = 120_000  # 当月売上
+ws['B3'] = 98_500   # 予算比
+
+wb.save('monthly_report_filled.xlsx')
+```
+
+### Pandas で大量データを読み込み Excel に出力する例
+
+```python
 import pandas as pd
 
-wb = load_workbook('template.xlsx')
-ws = wb['Sheet1']
-ws['B2'] = 1000  # 値の更新
+# CSV から読み込んだ売上データを集計し、Excel に一括出力
+sales = pd.read_csv('sales_2023.csv')
+monthly_summary = (
+    sales
+    .groupby('month')
+    .agg(total_amount=('amount', 'sum'))
+    .reset_index()
+)
 
-sales = pd.read_csv('sales.csv')
-sales.to_excel('report.xlsx', index=False)
-wb.save('result.xlsx')
+monthly_summary.to_excel('sales_summary.xlsx', index=False, sheet_name='2023_sales')
 ```
+
+大量の表データを加工する際は Pandas を活用し、最終的な見栄えの調整やテンプレートへの差し込みは OpenPyXL で行う、といった組み合わせが実
+務ではよく用いられます。
 
 ## 演習課題
 

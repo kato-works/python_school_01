@@ -42,6 +42,16 @@ ws['A1'] = 'Hello'
 wb.save('hello.xlsx')
 ```
 
+既存のファイルを開いて値を取得する例です。
+
+```python
+from openpyxl import load_workbook
+
+wb = load_workbook('hello.xlsx')
+ws = wb.active
+print(ws['A1'].value)
+```
+
 ## 2. 書式設定と数式
 
 - セルの背景色やフォントを変更する書式設定の方法を紹介します。

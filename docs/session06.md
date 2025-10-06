@@ -109,7 +109,7 @@ OpenPyXL と Pandas はどちらも Excel ファイルを扱えますが、得�
 
 monthly_report_template.xlsxという名前で、以下のようなファイルを作成してください。
 
-<img width="823" height="459" alt="image" src="https://github.com/user-attachments/assets/c0a8af9b-b830-4f37-97a0-704dfefaf2b4" />
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/c0a8af9b-b830-4f37-97a0-704dfefaf2b4" />
 
 
 ```python

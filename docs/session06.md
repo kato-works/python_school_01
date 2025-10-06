@@ -88,6 +88,10 @@ result = ws_result['A2'].value  # -> 再計算済みなら 3
 print(formula, result)
 ```
 
+FFFFFFや、4F81BDは、赤緑青の割合を表したカラーコードです。以下のようなサイトを参考にしてください。
+
+https://www.colordic.org/
+
 ## 3. Pandasとの連携
 
 - 大量の表データを扱う場合は、一度 `DataFrame` で加工し、`to_excel()` で出力すると効率的です。

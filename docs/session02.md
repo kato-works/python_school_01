@@ -4,6 +4,8 @@
 
 本章では、条件に応じて処理を変える `if` 文や、繰り返し処理を行う `for`／`while` 文の使い方を学びます。リストと組み合わせて利用することで、効率的なコードを書けるようになります。
 
+[Teamsの要約ページ](https://katohicom-my.sharepoint.com/:v:/g/personal/shohei-kishimoto_kato-works_co_jp/EXhFO7vfouZAtM0f3gu4xEwB8SSUUCAiZKciQMX_NyXmuQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=8SasrA)
+
 ## 前回の復習
 
 第1回では Python のインストール方法と Jupyter Lab の使い方、変数や `print`、四則演算など基本的な構文を学びました。この知識を踏まえて条件分岐とループ処理に挑戦します。

@@ -2,6 +2,8 @@
 
 この回では、なぜプログラミングを学ぶのかを確認し、Python の環境構築から基本的な構文を学びます。Jupyter Notebook を使った実行方法も紹介します。
 
+[Teamsの要約ページ](https://katohicom-my.sharepoint.com/:v:/g/personal/shohei-kishimoto_kato-works_co_jp/EcLdwCuRbDhLvfZ3upEIk1sBTALju6SYwF5X6BD8J9Ui9Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=c5eDYq)
+
 ## 学習内容
 
 - なぜプログラミングを学ぶのか？

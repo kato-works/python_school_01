@@ -2,6 +2,8 @@
 
 処理をまとめて再利用するための「関数」や、便利な機能がまとまった「モジュール」の使い方を学習します。自分で作った関数を呼び出して、より読みやすいコードを目指します。
 
+[Teamsの要約ページ](https://katohicom-my.sharepoint.com/:v:/g/personal/shohei-kishimoto_kato-works_co_jp/EdvgFPdJnIJJrMMCPLhhGiQB5OEYDseLmuoJ2d1B5mzShg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=4W8lH3)
+
 ## 前回の復習
 
 第2回では `if` や `while` を用いた条件分岐とループ処理を練習しました。今回はそれらの処理を整理して再利用しやすくするための関数やモジュールに取り組みます。

@@ -2,6 +2,8 @@
 
 ファイルの読み書き方法と、テキストを扱う際の基本的な文字列処理を学びます。実務例として、ログファイルを整形する簡単なスクリプトを作成します。
 
+[Teamsの要約ページ](https://teams.microsoft.com/l/meetingrecap?driveId=b%217ncVQ1T07kWYBrxm9uQwPlwo7bSwQcRGoYUZoTh1L-tu1RssjFSxQp5uOyyA6nAZ&driveItemId=01VXAKPHUQBIRUGSY5XVD3EWBHUC6262RS&sitePath=https%3A%2F%2Fkatohicom-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Fshohei-kishimoto_kato-works_co_jp%2FEZAKI0NLHb1HslgnoL2vajIBpd948uPIQTmqgdLNpAPPbg&fileUrl=https%3A%2F%2Fkatohicom-my.sharepoint.com%2Fpersonal%2Fshohei-kishimoto_kato-works_co_jp%2FDocuments%2F%25E3%2583%25AC%25E3%2582%25B3%25E3%2583%25BC%25E3%2583%2587%25E3%2582%25A3%25E3%2583%25B3%25E3%2582%25B0%2FPython%25E5%258B%2589%25E5%25BC%25B7%25E4%25BC%259A-20250929_125600-%25E4%25BC%259A%25E8%25AD%25B0%25E3%2581%25AE%25E9%258C%25B2%25E9%259F%25B3.mp4%3Fweb%3D1&iCalUid=040000008200E00074C5B7101A82E00807E9091D417DAC37A705DC01000000000000000010000000B86783B7EEFFC240BB7EBDD0B91AA793&masterICalUid=040000008200E00074C5B7101A82E00800000000417DAC37A705DC01000000000000000010000000B86783B7EEFFC240BB7EBDD0B91AA793&threadId=19%3Ameeting_ZDNlNjZjZDAtYzU3Yi00OTk0LWIwNTktMWU0YjBkNTI4ZWNi%40thread.v2&organizerId=6f81a396-59ea-411f-bed8-cbe90d79a87e&tenantId=f103ab5b-a1f9-4850-adfb-83eb168797eb&callId=bda804bf-db43-47a0-8f32-e10fd0ee0653&threadType=meeting&meetingType=Recurring&subType=RecapSharingLink_RecapCore)
+
 ## 前回の復習
 
 第3回では関数の定義方法や標準モジュールの活用法を学びました。今回はそれらを応用し、ファイル操作と文字列処理を組み合わせた実務的なスクリプト作成に挑戦します。

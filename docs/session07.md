@@ -51,16 +51,29 @@ print(soup.find('p').text)
 ## 3. マナーと応用例
 
 - robots.txt や利用規約の確認、アクセス頻度を抑えるなど、スクレイピングのマナーを守る重要性を説明します。
-- 競合サイトの価格情報を定期取得したり、天気予報サイトから必要な情報だけを抜き出す実践例を紹介します。
+- 競合サイトの価格情報を定期取得したり、天気予報サイト（例：Yahoo!天気・災害 https://weather.yahoo.co.jp/weather/jp/13/4410.html ）から必要な情報だけを抜き出す実践例を紹介します。
 
 ```python
 import requests
 from bs4 import BeautifulSoup
 
-resp = requests.get('https://example.com')
+url = 'https://weather.yahoo.co.jp/weather/jp/13/4410.html'
+headers = {
+    'User-Agent': 'Mozilla/5.0',  # 一般的なブラウザを装うことで403エラーを避ける
+}
+
+resp = requests.get(url, headers=headers)
+resp.raise_for_status()
 soup = BeautifulSoup(resp.text, 'html.parser')
-for item in soup.select('.price'):
-    print(item.get_text(strip=True))
+
+# 週間予報テーブルから今日・明日の行だけを取り出す
+week_rows = soup.select('#yjw_week table tr')
+for row in week_rows[1:3]:  # 0番目はヘッダー行なのでスキップ
+    cols = [c.get_text(strip=True) for c in row.select('td')]
+    if len(cols) < 4:
+        continue
+    date, weather, high, low = cols[0], cols[1], cols[2], cols[3]
+    print(f'{date}: {weather} / 最高{high} / 最低{low}')
 ```
 
 ## 演習課題

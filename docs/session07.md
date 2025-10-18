@@ -38,15 +38,106 @@ print(resp.status_code)
 
 - `BeautifulSoup` オブジェクトから `find` / `find_all` を使って要素を抽出する方法を学びます。
 - CSSセレクターを使った検索や、テキストの整形・クリーンアップのコツを解説します。
+- XPath を併用して要素を取得する方法と、ブラウザの開発者ツールで XPath を調べる手順を紹介します。
+- 要素の属性値（`href` など）を取り出して、リンク一覧のような情報にまとめる例を示します。
 - 取得したデータをリストやCSVにまとめる処理を実装し、簡単なクローラーを作成します。
+
+### 基本：タグ名で取得
 
 ```python
 from bs4 import BeautifulSoup
 
-html = '<p class="msg">hi</p>'
+html = """
+<html>
+  <body>
+    <h1>スクレイピング入門</h1>
+    <p class="msg">こんにちは</p>
+    <p class="msg">こんばんは</p>
+  </body>
+</html>
+"""
+
 soup = BeautifulSoup(html, 'html.parser')
-print(soup.find('p').text)
+
+# 最初の <p> 要素だけを取得
+first_paragraph = soup.find('p')
+print(first_paragraph.text)  # => こんにちは
+
+# 複数要素をリストで取得
+all_paragraphs = soup.find_all('p')
+for p in all_paragraphs:
+    print(p.text)
 ```
+
+### CSSセレクターでの取得
+
+```python
+# class="msg" を持つ段落のみ取得
+messages = soup.select('p.msg')
+for msg in messages:
+    print(msg.get_text(strip=True))
+
+# 子孫セレクターや属性セレクターも利用可能
+headline = soup.select_one('body > h1')
+print(headline.string)
+```
+
+### 属性値の取り出し
+
+```python
+html = """
+<ul>
+  <li><a href="https://example.com/news">ニュース</a></li>
+  <li><a href="https://example.com/blog">ブログ</a></li>
+</ul>
+"""
+
+soup = BeautifulSoup(html, 'html.parser')
+
+for link in soup.select('a'):
+    title = link.get_text(strip=True)
+    url = link.get('href')  # 属性名を指定して取得
+    print(f"{title}: {url}")
+```
+
+### XPathによる取得
+
+BeautifulSoup は XPath を直接サポートしていませんが、`lxml` パーサーを併用すると XPath での検索も可能です（事前に `pip install lxml` を実行してください）。
+
+```python
+from bs4 import BeautifulSoup
+
+html = """
+<div id="articles">
+  <article>
+    <h2>Pythonニュース</h2>
+    <p>最新情報をお届けします。</p>
+  </article>
+  <article>
+    <h2>スクレイピング事例</h2>
+    <p>BeautifulSoupの活用法。</p>
+  </article>
+</div>
+"""
+
+soup = BeautifulSoup(html, 'lxml')  # lxml パーサーを利用
+
+# lxml オブジェクトを取得し、XPath を使う
+dom = soup.decode()  # BeautifulSoup → 文字列
+from lxml import etree
+
+tree = etree.HTML(dom)
+titles = tree.xpath('//div[@id="articles"]/article/h2/text()')
+for title in titles:
+    print(title)
+```
+
+#### ブラウザの開発者ツールで XPath を調べる手順
+
+1. Chrome や Edge で対象ページを開き、右クリックから「検証」を選択して開発者ツールを開きます。
+2. Elements（要素）タブで目的の要素を選択した状態で、右クリック → **Copy > Copy XPath** を選びます。
+3. 取得した文字列を上記の `tree.xpath('...')` の `'...'` の部分に貼り付けると、同じ要素を Python から取得できます。
+4. CSS セレクターを使いたい場合は **Copy > Copy selector** を選ぶと便利です。
 
 ## 3. マナーと応用例
 

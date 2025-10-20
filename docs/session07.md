@@ -149,14 +149,13 @@ resp = requests.get(url, headers=headers)
 resp.raise_for_status()
 soup = BeautifulSoup(resp.text, 'html.parser')
 
-# 週間予報テーブルから今日・明日の行だけを取り出す
-week_rows = soup.select('#yjw_week table tr')
-for row in week_rows[1:3]:  # 0番目はヘッダー行なのでスキップ
-    cols = [c.get_text(strip=True) for c in row.select('td')]
-    if len(cols) < 4:
-        continue
-    date, weather, high, low = cols[0], cols[1], cols[2], cols[3]
-    print(f'{date}: {weather} / 最高{high} / 最低{low}')
+
+# テーブルから今日の天気を取り出す
+weather = soup.select('#main > div.forecastCity > table > tr > td:nth-child(1) > div > p.pict')[0].text.strip()
+high = soup.select('#main > div.forecastCity > table > tr > td:nth-child(1) > div > ul > li.high > em')[0].text.strip()
+low = soup.select('#main > div.forecastCity > table > tr > td:nth-child(1) > div > ul > li.low > em')[0].text.strip()
+
+print(weather, high, low)
 ```
 
 ## 演習課題

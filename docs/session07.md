@@ -49,6 +49,15 @@ html_text = resp.text
 print(html_text)
 ```
 
+エラーとなる際には、以下のようにproxiesを設定して実行してください。
+
+```python
+proxies = {
+  "http": "http://172.16.10.41:8080",
+}
+response = requests.get('https://example.com', proxies=proxies)
+```
+
 ## 2. BeautifulSoupによる解析
 
 - `BeautifulSoup` オブジェクトから `find` / `find_all` を使って要素を抽出する方法を学びます。

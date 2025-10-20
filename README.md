@@ -25,6 +25,8 @@ CAN/UARTを利用する通信編、データ分析・グラフなどを学ぶデ
 
 ## 🗓 カリキュラム案（週1・全8回）
 
+[講義動画](https://drive.google.com/drive/folders/15e1WULmyOExdodBO6IW5VkdcxeAH2NMa?usp=drive_link)
+
 ### [第1回：導入とPythonの基本構文](docs/session01.md)
 
 - なぜプログラミングを学ぶのか？

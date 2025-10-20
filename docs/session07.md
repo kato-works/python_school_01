@@ -90,6 +90,12 @@ headline = soup.select_one('body > h1')
 print(headline.string)
 ```
 
+#### ブラウザの開発者ツールで CSS セレクター を調べる手順
+
+1. Chrome や Edge で対象ページを開き、右クリックから「検証」を選択して開発者ツールを開きます。
+2. Elements（要素）タブで目的の要素を選択した状態で、右クリック → **Copy > Copy selector** を選びます。
+3. 取得した文字列を上記の `soup.select('...')` の `'...'` の部分に貼り付けると、同じ要素を Python から取得できます。
+
 ### 属性値の取り出し
 
 ```python
@@ -108,44 +114,6 @@ for link in soup.select('a'):
     print(f"{title}: {url}")
 ```
 
-### XPathによる取得
-
-BeautifulSoup は XPath を直接サポートしていませんが、`lxml` パーサーを併用すると XPath での検索も可能です（事前に `pip install lxml` を実行してください）。
-
-```python
-from bs4 import BeautifulSoup
-
-html = """
-<div id="articles">
-  <article>
-    <h2>Pythonニュース</h2>
-    <p>最新情報をお届けします。</p>
-  </article>
-  <article>
-    <h2>スクレイピング事例</h2>
-    <p>BeautifulSoupの活用法。</p>
-  </article>
-</div>
-"""
-
-soup = BeautifulSoup(html, 'lxml')  # lxml パーサーを利用
-
-# lxml オブジェクトを取得し、XPath を使う
-dom = soup.decode()  # BeautifulSoup → 文字列
-from lxml import etree
-
-tree = etree.HTML(dom)
-titles = tree.xpath('//div[@id="articles"]/article/h2/text()')
-for title in titles:
-    print(title)
-```
-
-#### ブラウザの開発者ツールで XPath を調べる手順
-
-1. Chrome や Edge で対象ページを開き、右クリックから「検証」を選択して開発者ツールを開きます。
-2. Elements（要素）タブで目的の要素を選択した状態で、右クリック → **Copy > Copy XPath** を選びます。
-3. 取得した文字列を上記の `tree.xpath('...')` の `'...'` の部分に貼り付けると、同じ要素を Python から取得できます。
-4. CSS セレクターを使いたい場合は **Copy > Copy selector** を選ぶと便利です。
 
 ## 3. マナーと応用例
 

@@ -42,6 +42,13 @@ resp = requests.get('https://example.com')
 print(resp.status_code)
 ```
 
+HTMLデータの取り出し
+
+```python
+html_text = resp.text
+print(html_text)
+```
+
 ## 2. BeautifulSoupによる解析
 
 - `BeautifulSoup` オブジェクトから `find` / `find_all` を使って要素を抽出する方法を学びます。
